@@ -24,10 +24,11 @@ const Home = () => {
 			}
 		}
 	};
-	//const addtask =(evento) => {
-	//	const newTodoLista = [...Todolist,nuevaTask];
-//		setnuevaTask(newTodoLista);
-//	};
+	const borrar =(id) => {
+		const listafiltrada = Todolist.filter((e,index) => index !==id); 
+		setTodoList(listafiltrada);
+	};
+
 	return (
 		<div className="container">
 			<h1>ToDo List</h1>
@@ -52,11 +53,13 @@ const Home = () => {
 									
 									{Todolist.map((tarea,i)=>{
 										return(
-											<div className="todo-item">
-												
-												<span key={i} >{tarea}
-												</span>
-												
+											<div class="todo-list">
+												<div className="todo-item">
+													<div className="checker"><span className=""><input type="checkbox"/></span></div>
+													<span key={i} >{tarea}
+													</span>
+													<a href="javascript:void(0);" className="float-right remove-todo-item"><i className="icon-close"></i></a>	
+												</div>
 											</div>
 										)
 									})
