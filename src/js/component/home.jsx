@@ -1,9 +1,9 @@
 import React from "react";
-import { Input} from "reactstrap";
+import { Input, Container,Card} from "reactstrap";
 import { useState } from "react";
 
 //include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
+//import rigoImage from "../../img/rigo-baby.jpg";
 
 //create your first component
 
@@ -30,17 +30,17 @@ const Home = () => {
 	};
 
 	return (
-		<div className="container">
+		<div className="text-center">
 			<h1>ToDo List</h1>
 			
 			<div className="row">
-				<div className="col-md-12">
+				<div className="col-md-6">
 					<div className="card card-white">
 						<div className="card-body">
 
 						<div className="todo-list">
                         	<div className="todo-item">
-                            	<div className="checker">
+                            	
 									<Input 
 									type="text"
 									placeholder="Tarea por hacer"
@@ -53,12 +53,13 @@ const Home = () => {
 									
 									{Todolist.map((tarea,i)=>{
 										return(
-											<div class="todo-list">
+											<div className="todo-list">
 												<div className="todo-item">
-													<div className="checker"><span className=""><input type="checkbox"/></span></div>
-													<span key={i} >{tarea}
+													
+													<span key={i}>{tarea}
 													</span>
-													<a href="javascript:void(0);" className="float-right remove-todo-item"><i className="icon-close"></i></a>	
+													
+													<button className="add-btn"  on  onClick={( )=> borrar(i)}>X</button>		
 												</div>
 											</div>
 										)
@@ -67,7 +68,7 @@ const Home = () => {
 									
 									</div>
 									</div>
-									</div>
+								
 					</div>
 				</div>
 			</div>
